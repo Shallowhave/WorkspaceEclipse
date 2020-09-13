@@ -1,4 +1,4 @@
-package com.hk.java;
+package day11;
 
 public class Test {
 
