@@ -25,13 +25,15 @@ public class CustomerList {
 	// 修改客户
 	public boolean replaceCustomer(int index, Customer cust) {
 		if (index > 0 || index < total) {
+			System.out.println(total);
 			customers[index - 1] = cust;
 			return true;
 		}
 		return false;
 
 	}
-	//删除客户
+
+	// 删除客户
 	public boolean deleteCustomer(int index) {
 		if (index > 0 || index < total) {
 			for (int i = index; i < total; i++) {
@@ -59,7 +61,6 @@ public class CustomerList {
 			return customers[index - 1];
 		}
 		return null;
-
 	}
 
 	public int getTotal() {
