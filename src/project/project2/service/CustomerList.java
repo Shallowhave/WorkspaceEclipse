@@ -31,7 +31,7 @@ public class CustomerList {
 		return false;
 
 	}
-
+	//删除客户
 	public boolean deleteCustomer(int index) {
 		if (index > 0 || index < total) {
 			for (int i = index; i < total; i++) {

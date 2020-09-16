@@ -56,14 +56,61 @@ public class CustomerView {
 
 	public void addNewCustomer() {
 		
+		System.out.println("---------------------添加客户---------------------");
+		System.out.print("姓名：");
+		String name = CMUtility.readString(10);
+		System.out.print("性別：");
+		char gender = CMUtility.readChar();
+		System.out.print("年齡：");
+		int age = CMUtility.readInt();
+		System.out.print("电话：");
+		String phone = CMUtility.readString(11);
+		System.out.print("邮箱：");
+		String email = CMUtility.readString(20);
+		Customer cust = new Customer(name, gender, age, phone, email);
+		customerList.addCustomer(cust);
+		System.out.println("---------------------添加完成---------------------");
 
 	}
 
 	public void modifyCustomer() {
+		System.out.println("---------------------修改客户---------------------");
+		System.out.println("请选择待修改客户的编号(-1退出)：");
+		int num = CMUtility.readInt();
+		if(num == -1) {
+			return;
+		}
+		Customer customer = customerList.getCustomers(num);
+		System.out.print("姓名：");
+		String name = CMUtility.readString(10,customer.getName());
+		System.out.print("性別：");
+		char gender = CMUtility.readChar(customer.getGender());
+		System.out.print("年齡：");
+		int age = CMUtility.readInt(customer.getAge());
+		System.out.print("电话：");
+		String phone = CMUtility.readString(11,customer.getPhone());
+		System.out.print("邮箱：");
+		String email = CMUtility.readString(20,customer.getEmail());
+		Customer cust = new Customer(name, gender, age, phone, email);
+		customerList.replaceCustomer(num, cust);
+		System.out.println("---------------------修改完成---------------------");
 
 	}
 
 	public void deleteCustomer() {
+		System.out.println("---------------------删除客户---------------------");
+		System.out.println("请选择待删除客户编号(-1退出)：");
+		int num = CMUtility.readInt();
+		if(num ==-1) {
+			return;
+		}
+		System.out.println("确认是否删除(Y/N)：");
+		char key = CMUtility.readConfirmSelection();
+		if(key != 'Y') {
+			return;
+		}
+		customerList.deleteCustomer(num);
+		System.out.println("---------------------删除客户---------------------");
 
 	}
 
